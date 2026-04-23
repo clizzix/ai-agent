@@ -1,0 +1,32 @@
+{
+    "name": "wbs-node-ts-template",
+    "version": "1.0.0",
+    "description": "A modern, production-ready scaffold for Node.js backend projects using TypeScript with ES modules support.",
+    "main": "dist/app.js",
+    "type": "module",
+    "imports": {
+        "#utils": {
+            "development": "./src/utils/index.ts",
+            "default": "./dist/utils/index.js"
+        }
+    },
+    "scripts": {
+        "dev": "node --watch --conditions development --env-file=.env.development.local src/app.ts",
+        "prebuild": "rm -rf dist",
+        "build": "tsc",
+        "prestart": "npm run build",
+        "start": "node dist/app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^24.10.12",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "@openai/agents": "^0.8.5",
+        "openai": "^6.34.0",
+        "zod": "^4.3.6"
+    }
+}
